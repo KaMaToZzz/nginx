@@ -1,0 +1,5 @@
+---
+
+# For Nginx conf default for example:
+servname: php-docker.local
+servindex: "index.php index.html"

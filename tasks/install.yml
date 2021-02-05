@@ -1,0 +1,24 @@
+---
+
+- name: install yum-utils
+  yum:
+    name: yum-utils
+
+# Почему через config-manager? Потому, что yum_repository добавляет его коряво
+# и файл содержит только две строки. Почему? Не знаю, не стал тратить время.
+- name: Add repository
+  command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+- name: install packeg
+  yum:
+    name:
+      - docker-ce 
+      - docker-ce-cli 
+      - containerd.io
+    state: present
+
+- name: pip install docker docker-compose
+  pip:
+    name:
+      - docker
+      - docker-compose

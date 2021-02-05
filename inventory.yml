@@ -1,0 +1,8 @@
+---
+
+web:
+  hosts:
+    nginx:
+      ansible_host: 46.243.180.152
+      ansible_become: yes
+      ansible_user: user

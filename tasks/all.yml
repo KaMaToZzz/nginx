@@ -1,0 +1,13 @@
+---
+
+- name: installing all we need
+  import_tasks: install.yml
+  tags: install
+
+- name: copy all we need
+  import_tasks: copy.yml
+  tags: copy
+
+- name: configure
+  import_tasks: configure.yml
+  tags: config

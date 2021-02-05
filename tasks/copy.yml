@@ -1,0 +1,20 @@
+---
+
+- name: ensure custom facts /code exists
+  file:
+    path: /home/code
+    state: directory
+
+- name: copy template for nginx
+  template:
+    src: default.conf.j2
+    dest: /home/default.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: copy docker file
+  copy: src="docker-compose.yml" dest=/home owner=root group=root mode=0644
+    
+- name: copy index.php
+  copy: src="index.php" dest=/home/code/ owner=root group=root mode=0644

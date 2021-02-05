@@ -1,0 +1,12 @@
+---
+
+- name: Docker start end enable
+  ansible.builtin.systemd:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: run the service defined in my_project's docker-compose.yml
+  docker_compose:
+    project_src: /home
+    state: present
